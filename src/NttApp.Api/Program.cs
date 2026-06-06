@@ -15,24 +15,24 @@ public partial class Program
         builder.Services.AddPooledDbContextFactory<PostgresDbContext>((_ , options) => 
                 options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres")));
 
-        // NttApp.InMemoryDb.Extesions.ServiceCollectionExtensions.RegisterRepositories(builder.Services)
-        NttApp.Postgres.Extesions.ServiceCollectionExtensions.RegisterRepositories(builder.Services)
+        // InMemoryDb.Extesions.ServiceCollectionExtensions.RegisterRepositories(builder.Services)
+        Postgres.Extesions.ServiceCollectionExtensions.RegisterRepositories(builder.Services)
             .RegisterServices()
             .AddMapster();
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-        builder.Services.AddOpenApi();
+        // Add services to the container.
+        // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+        builder.Services.AddOpenApi("ntt-app");
 
         var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+        // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
-            app.MapOpenApi();
+            app.MapOpenApi("/openapi/{documentName}.yaml");
         }
 
-        app.UseHttpsRedirection();
+        app.UseHttpsRedirection(); 
 
         app.RegisterApiRoutes();
 

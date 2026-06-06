@@ -7,7 +7,10 @@
 
   postgres:
     image: postgres
+    network_mode: host
     environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_DATABASE: "NttAppDb"
       POSTGRES_PASSWORD: "Postgres2022!"
     ports:
       - "5432:5432"
