@@ -21,17 +21,20 @@ public abstract class PostgresRepository<TEntity, TKey>(
     public virtual TEntity Add(TEntity entity)
     {
         DbSet.Add(entity);
+        DbContext.SaveChanges();
         return entity;
     }
     
     public virtual void Remove(TEntity entity)
     {
         DbSet.Remove(entity);
+        DbContext.SaveChanges();
     }
 
     public virtual void Update(TEntity entity)
     {
         DbSet.Update(entity);
+        DbContext.SaveChanges();
     }
 
     public virtual TEntity? Get(TKey id)

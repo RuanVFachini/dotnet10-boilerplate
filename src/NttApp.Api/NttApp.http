@@ -4,3 +4,13 @@ GET {{NttApp_HostAddress}}/todos
 Accept: application/json
 
 ###
+POST {{NttApp_HostAddress}}/todos
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Title": "Todo 1",
+    "Description": "Todo 1 description"
+}
+
+###
