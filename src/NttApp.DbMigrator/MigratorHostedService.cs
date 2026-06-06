@@ -1,14 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using NttApp.DbMigrator.Data;
 
 namespace NttApp.DbMigrator;
 
-public class MigratorHostedService(MigratorDbContext dbContext) : BackgroundService
+public class MigratorHostedService(
+    IServiceProvider serviceProvider
+    ) : BackgroundService
 {
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        dbContext.Database.MigrateAsync(stoppingToken);
+        serviceProvider.GetService<MigratorDbContext>()?.Database.MigrateAsync(stoppingToken);
         
         return Task.CompletedTask;
     }
