@@ -5,3 +5,5 @@ src/**/obj
 tests/**/bin
 tests/**/obj
 
+k6/node_modules
+

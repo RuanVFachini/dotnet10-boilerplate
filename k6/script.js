@@ -1,10 +1,11 @@
 import http from 'k6/http';
 import { sleep } from 'k6';
 export const options = {
-    vus: 10,
+    vus: 5000,
     duration: '30s',
+    insecureSkipTLSVerify: true,
 };
 export default function () {
-    http.get('http://test.k6.io');
+    http.get('https://localhost:7271/todos');
     sleep(1);
 }
