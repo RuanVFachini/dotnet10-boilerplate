@@ -1,0 +1,6 @@
+@NttApp_HostAddress = https://localhost:7271
+
+GET {{NttApp_HostAddress}}/todos
+Accept: application/json
+
+###
