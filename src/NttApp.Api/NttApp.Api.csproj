@@ -15,7 +15,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NttApp.Domain\NttApp.Domain.csproj" />
-      <ProjectReference Include="..\NttApp.InMemoryDb\NttApp.InMemoryDb.csproj" />
       <ProjectReference Include="..\NttApp.Opentelemetry\NttApp.OpenTelemetry.csproj" />
       <ProjectReference Include="..\NttApp.Postgres\NttApp.Postgres.csproj" />
     </ItemGroup>

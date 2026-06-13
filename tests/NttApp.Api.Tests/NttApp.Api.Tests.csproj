@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\NttApp.Api\NttApp.Api.csproj" />
+      <ProjectReference Include="..\..\src\NttApp.InMemoryDb\NttApp.InMemoryDb.csproj" />
     </ItemGroup>
 
 </Project>
